@@ -40,11 +40,11 @@ async function getMoveData(movesAux) {
 
 // funciones que dependiendo del tipo y tipo de daño muestran una imagen u otra
 function getDamageClassImage(damageClass) {
-    return `../../public/damageClass/${damageClass}.png`
+    return `/PokeApp/damageClass/${damageClass}.png`
 }
 
 function getTypeImage(type) {
-    return `../../public/tipos/${type}.png`
+    return `/PokeApp/tipos/${type}.png`
 }
 
 </script>
@@ -54,14 +54,13 @@ function getTypeImage(type) {
     <div v-else class="pokemon-moves">
         <!-- recorro el array de movimiento y sus datos -->
         <!-- si esta sobre el movimiento el hover pasa a tener el valor de su nombre -->
-        <div class="moves" v-for="move in moves" :key="move.name" 
-            @mouseover="isHover = move.name"
+        <div class="moves" v-for="move in moves" :key="move.name" @mouseover="isHover = move.name"
             @mouseleave="isHover = null">
             <!-- estilos que se aplicamn si esta hover o no -->
-            <div :style="{ display: isHover === move.name ? 'block' : 'none' }" class = "description">
+            <div :style="{ display: isHover === move.name ? 'block' : 'none' }" class="description">
                 <h3>Description</h3>
                 <p>{{ move.effect }}</p>
-                </div>
+            </div>
 
             <h3 class="nombreMovimiento">{{ move.name }}</h3>
             <div class="detail-item">
@@ -97,7 +96,7 @@ h1 {
     text-transform: capitalize;
 }
 
-.description{
+.description {
     position: absolute;
     top: 0;
     height: 70%;
@@ -115,7 +114,7 @@ h1 {
     opacity: 1;
 }
 
-.description p{
+.description p {
     display: flex;
     text-align: center;
     align-items: center;

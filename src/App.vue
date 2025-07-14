@@ -16,7 +16,7 @@ onMounted(() => {
             { type: 'pokemon-abilities', data: JSON.parse(localStorage.getItem('pokemon-abilities')) || [] }
         ];
         // enviar la cache al worker, siempre y cuando el action sea igual a start, pasa un objeto
-        worker.postMessage({ action: 'start',  caches: caches });
+        worker.postMessage({ action: 'start', caches: caches });
 
         // escuchar respuestas del worker
         worker.onmessage = (e) => {
@@ -188,5 +188,48 @@ img {
 
 .cerrar-sesion:hover {
     text-decoration: none;
+}
+
+.formulario {
+    display: flex;
+    position: sticky;
+    margin-top: 1em;
+    top: 1.2em;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background-color: #f8f9fa;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 380px;
+}
+
+.formulario input[type="text"] {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    border: 2px solid #dcdcdc;
+    border-radius: 0.5rem;
+    font-size: 0.9em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formulario input[type="text"]:focus {
+    border-color: #a52903;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 60, 0, 0.2);
+}
+
+.formulario button {
+    padding: 1.3em 1em;
+    background-color: #9c2805;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.8em;
+}
+
+.formulario button:hover {
+    background-color: #932504;
 }
 </style>

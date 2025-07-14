@@ -17,7 +17,7 @@ const router = createRouter({
       name: 'PokeView',
       component: PokeView,
       // obtengo el objeto con route con los valores de la url
-    // Esto pasa el valor a entero y sino lo encuentra le asigna 1
+      // Esto pasa el valor a entero y sino lo encuentra le asigna 1
       props: route => ({ page: parseInt(route.query.page) || 1 })
     },
     {
@@ -25,9 +25,13 @@ const router = createRouter({
       name: 'PokeViewDetails',
       // debemos permitir el paso de props
       props: true,
-      component: () => import ('@/views/PokeViewDetails.vue'), 
+      component: () => import('@/views/PokeViewDetails.vue'),
     },
   ],
+  // Se modifica el comportamiento del scroll para llevar arriba automaticamente cada que se haga router push o routerlink
+  scrollBehavior(to, from, savedPosition) {
+    return { top: 0 }
+  }
 })
 
 export default router

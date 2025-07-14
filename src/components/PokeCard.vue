@@ -1,38 +1,36 @@
 <script setup>
 // se obtiene los datos del pokemon que se ha insertado en el buscador
 const props = defineProps({
-    pokemonData:{
-    type: Object,
-    required: true
+    pokemonData: {
+        type: Object,
+        required: true
     }
 })
 
 // Funcion para obtener la imagen del tipo del pokemon
 function getTypeImage(type) {
-    return `../../public/tipos/${type}.png`
+    return `/PokeApp/tipos/${type}.png`
 }
 </script>
 
 <template>
-  <!-- se muestran datos y se realiaz un router link hacia PokeDetailsView, se pasa por parámetro el id del pokemon -->
-   <!-- Recordatorio. se deberá relizar en el index.js una ruta nueva que redirija hacia PokeViewDetails.vue -->
-    <RouterLink :to = "{name: 'PokeViewDetails', params: {pokemonName: props.pokemonData.name}}"
-    v-if = "props.pokemonData && props.pokemonData.name" class="pokemon-card-container">
-        <div  class="poke-card">
+    <!-- se muestran datos y se realiaz un router link hacia PokeDetailsView, se pasa por parámetro el id del pokemon -->
+    <!-- Recordatorio. se deberá relizar en el index.js una ruta nueva que redirija hacia PokeViewDetails.vue -->
+    <RouterLink :to="{ name: 'PokeViewDetails', params: { pokemonName: props.pokemonData.name } }"
+        v-if="props.pokemonData && props.pokemonData.name" class="pokemon-card-container">
+        <div class="poke-card">
             <h3>{{ props.pokemonData.name }}</h3>
             <div v-for="type in pokemonData.types" class="pokemon-type">
                 <img :src="getTypeImage(type.type.name)" :alt="(type.type.name)" />
             </div>
-            <img v-if="props.pokemonData.sprites" 
-            :src="props.pokemonData.sprites" 
-            alt="{{ props.pokemonData.name }}"
-            class = "pokemon-image" />
+            <img v-if="props.pokemonData.sprites" :src="props.pokemonData.sprites" alt="{{ props.pokemonData.name }}"
+                class="pokemon-image" />
         </div>
     </RouterLink>
 </template>
 
 <style scoped>
-.mensaje{
+.mensaje {
     width: 90%;
     color: #ff6347;
     background-color: #fff3f3;
@@ -87,9 +85,9 @@ p {
 }
 
 .poke-card p {
-  font-size: 1.1rem;
-  color: #333;
-  margin: 8px 0;
+    font-size: 1.1rem;
+    color: #333;
+    margin: 8px 0;
 }
 
 

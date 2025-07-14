@@ -2,6 +2,11 @@
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+html{
+  scroll-behavior: smooth;
+
+}
+
 body{
   background-color: #f4f7f6;
   min-width: 1000px;
