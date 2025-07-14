@@ -42,7 +42,7 @@ async function getPokemonData(pokemonName) {
 
 // Funcion para obtener la imagen del tipo del pokemon
 function getTypeImage(type) {
-    return `/PokeApp/public/tipos/${type}.png`
+    return `/PokeApp/tipos/${type}.png`
 }
 
 // funcion que devuelve un color dependiendo del tipo que sea el pokemon
