@@ -19,6 +19,7 @@ onMounted(() => {
     // se utiliza el watchEffect para que este se actualice cada que la variable reactive cambie
     watchEffect(() => {
         getPokemonData(props.pokemonName)
+
     })
 
 })
@@ -114,10 +115,6 @@ function getPokemonBackgroundStyle(types) {
             <div class="detail-item">
                 <p class="nombreAtributo">Weight</p>
                 <p>{{ pokemon.weight / 10 }} kg</p>
-            </div>
-            <div class="detail-item">
-                <p class="nombreAtributo">Base Experience</p>
-                <p>{{ pokemon.base_experience }}</p>
             </div>
         </div>
         <div class="stats-abilities">

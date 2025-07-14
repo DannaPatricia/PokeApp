@@ -201,6 +201,7 @@ img {
     border-radius: 0.75rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     max-width: 380px;
+    z-index: 1000;
 }
 
 .formulario input[type="text"] {
